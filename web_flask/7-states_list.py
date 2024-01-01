@@ -15,10 +15,10 @@ def states_list():
 
 
 @app.teardown_appcontext
-def teardown(self):
-    """Remove SQLAlchemy class """
+def teardown(exc):
+    """ Remove SQLAlchemy class """
     storage.close()
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)
