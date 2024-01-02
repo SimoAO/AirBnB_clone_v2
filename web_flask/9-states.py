@@ -11,16 +11,16 @@ app = Flask(__name__)
 def states():
     """ States list class """
     states = storage.all(State)
-    return render_template("9-states.html", states=state)
+    return render_template("9-states.html", states=states)
 
 
-@app.route('/states/<id>', strict_slashes=False)
+@app.route("/states/<id>", strict_slashes=False)
 def states_id(id):
 	""" Cities of a state list class """
 	for state in storage.all(State).values():
 		if state.id == id:
-		    return render_template('9-states.html', states=state, id=id)
-	return render_template('9-states.html')
+		    return render_template("9-states.html", states=states, d_id=id)
+	return render_template("9-states.html", states=states)
 
 
 @app.teardown_appcontext
